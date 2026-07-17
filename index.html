@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Murra Meridian — магазин преміальних годинників. Колекція виксклюзивних годинників від провідних брендів.">
+    <meta name="keywords" content="годинники, преміальні годинники, швейцарські годинники, Casio, Forsining">
+    <meta name="author" content="Murra Meridian">
+    <meta property="og:title" content="Murra Meridian — Магазин Годинників">
+    <meta property="og:description" content="Екзклюзивна колекція преміальних годинників">
+    <title>Murra Meridian — Магазин Годинників</title>
+    <!-- Шрифти -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Іконки FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-....." crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Підключення зовнішнього файлу стилів CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Шапка бренду -->
+    <header>
+        <div class="logo-container" onclick="showSection('home')">
+            <div class="logo-graphics">
+                <svg class="logo-icon" viewBox="0 0 40 20">
+                    <path d="M2,10 Q6,3 10,10 T18,10 T26,10 T34,10" />
+                    <path d="M6,13 Q10,7 14,13 T22,13 T30,13" opacity="0.5"/>
+                </svg>
+                <div class="logo-divider"></div>
+                <div class="logo-letter">M</div>
+            </div>
+            <div class="logo-text">Murra_Meridian</div>
+        </div>
+        
+        <nav>
+            <ul class="nav-links" role="navigation" aria-label="Головна навігація">
+                <li><a id="nav-home" onclick="showSection('home')" class="active" role="button">Головна</a></li>
+                <li><a id="nav-catalog" onclick="showSection('catalog')" role="button">Асортимент</a></li>
+                <li><a id="nav-contacts" onclick="showSection('contacts')" role="button">Зв'язок / Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- СЕКЦІЯ 1: Головна сторінка -->
+    <main id="section-home" class="page-section active">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Годинник - аксесуар, який говорить про твій статус замість тебе.</h1>
+                <p>Надійна навігація у світі преміального стилю. Ми пропонуємо унікальну колекцію годинників, які підкреслюють ваш статус та ділову впевненість.</p>
+                <button class="btn-consult" onclick="showSection('catalog')">Переглянути Асортимент</button>
+            </div>
+
+            <div class="services-preview-grid">
+                <div class="service-card">
+                    <span class="card-tag">Надійність і Престиж</span>
+                    <p>Кожен годинник проходить ретельний контроль якості перед тим, як потрапити до наших шановних клієнтів.</p>
+                    <button class="card-btn" onclick="showSection('catalog')">Каталог <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="service-card">
+                    <span class="card-tag">Ідеальні Механізми</span>
+                    <p>Високоточний автопідзавод та міцні сапфірові матеріали, адаптовані до викликів активного бізнес-життя.</p>
+                    <button class="card-btn" onclick="showSection('catalog')">До вибору <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="service-card">
+                    <span class="card-tag">Особиста підтримка</span>
+                    <p>Консультація та підбір аксесуару нашими фахівцями у зручному для вас месенджері Telegram.</p>
+                    <button class="card-btn" onclick="showSection('contacts')">Написати нам <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- СЕКЦІЯ 2: Асортимент (10 Годинників) -->
+    <section id="section-catalog" class="page-section">
+        <div class="catalog-section">
+            <div class="catalog-header">
+                <h2>Асортимент Годинників</h2>
+                <p>Оберіть модель, що відповідає вашому характеру. Клікніть на годинник, щоб відкрити його детальну сторінку.</p>
+            </div>
+            
+            <div class="catalog-grid" id="catalog-container" role="main" aria-label="Каталог годинників">\n                <!-- 10 годинників генеруються скриптом JS -->\n            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦІЯ 3: Сторінка товару (Детально) -->
+    <section id="section-product-detail" class="page-section">
+        <div class="product-section">
+            <div class="back-to-catalog">
+                <button class="btn-back" onclick="showSection('catalog')"><i class="fa-solid fa-arrow-left"></i> Назад до асортименту</button>
+            </div>
+            
+            <div class="product-container">
+                <div class="product-image-box">
+                    <button class="btn-prev" onclick="prevImage()"><i class="fa-solid fa-chevron-left"></i></button>
+                    <img id="detail-img" src="" alt="Watch image" class="watch-mockup">
+                    <button class="btn-next" onclick="nextImage()"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="image-counter">
+                        <span id="image-index">1</span> / <span id="image-total">1</span>
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <h2 id="detail-title">Чоловічі годинники</h2>
+                    
+                    <table class="product-meta-table">
+                        <thead>
+                            <tr>
+                                <th>Ціна</th>
+                                <th>Модель</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="detail-price" class="detail-price">$0.00</td>
+                                <td id="detail-code" class="detail-code">MODEL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <ul class="quick-specs">
+                        <li><i class="fa-solid fa-check"></i> Легендарний японський механізм <span id="detail-spec1"></span></li>
+                        <li><i class="fa-solid fa-check"></i> Надійне мінеральне скло <span id="detail-spec2"></span></li>
+                        <li><i class="fa-solid fa-check"></i> Корпус з іонним напиленням (IP) <span id="detail-spec3"></span></li>
+                        <li><i class="fa-solid fa-check"></i> Водонепроникність класу 50m (5 ATM) <span id="detail-spec4"></span></li>
+                        <li><i class="fa-solid fa-check"></i> Додаткові циферблати дати та дня тижня <span id="detail-spec5"></span></li>
+                    </ul>
+
+                    <!-- Кнопка яка перекидає в телеграм -->
+                    <a id="detail-tg-btn" href="#" target="_blank" class="btn-add-cart-tg">
+                        <i class="fa-brands fa-telegram"></i> Замовити в Telegram
+                    </a>
+
+                    <p id="detail-desc" class="product-description">Опис...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Світлі технічні характеристики під товаром -->
+        <div class="technical-section">
+            <div class="technical-container">
+                <h2>Технічні характеристики</h2>
+                
+                <div class="tech-grid">
+                    <div class="specs-list-column">
+                        <h3>Детальний опис</h3>
+                       <ul class="specs-list">
+  <li>
+    <span class="spec-label">Матеріал корпусу:</span>
+    <strong class="spec-value">
+      Нержавіюча сталь 316L<br>
+      Латунь з IP-покриттям
+    </strong>
+  </li>
+  <li>
+    <span class="spec-label">Механізм:</span>
+    <strong class="spec-value">
+      Кварцовий (Японія)<br>
+      Автопідзавод
+    </strong>
+  </li>
+  <li>
+    <span class="spec-label">Ремінець / Браслет:</span>
+    <strong class="spec-value">
+      Натуральна шкіра<br>
+      Сталевий браслет
+    </strong>
+  </li>
+  <li>
+    <span class="spec-label">Вологозахист:</span>
+    <strong class="spec-value">до 5 ATM</strong>
+  </li>
+  <li>
+    <span class="spec-label">Скло:</span>
+    <strong class="spec-value">
+      Загартоване мінеральне<br>
+      Сапфірове (антивідблиск)
+    </strong>
+  </li>
+  <li>
+    <span class="spec-label">Гарантія:</span>
+    <strong class="spec-value">24 місяці</strong>
+  </li>
+</ul>
+                    </div>
+
+                    <div class="features-column-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+                            <div class="feature-text">
+                                <h4>Преміальні матеріали</h4>
+                                <p> Для створення корпусу та браслета використовується винятково високоекологічна нержавіюча сталь класу 316L (або хірургічна сталь 904L), яка не викликає алергії та стійка до подряпин. Керамічні безелі та сапфірове скло з антивідблисковим покриттям гарантують першокласний вигляд годинника навіть через роки активного носіння.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-arrows-spin"></i></div>
+                            <div class="feature-text">
+                                <h4>Механізм руху</h4>
+                                <p>Наші годинники оснащені високоточними японськими та швейцарськими калібрами (Seiko, Citizen/Miyota), що забезпечують бездоганний хід та запас ходу до 48 годин. Для любителів класики передбачено плавний рух стрілки в автоматичних механізмах з автопідзаводом.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-droplet"></i></div>
+                            <div class="feature-text">
+                                <h4>Водостійкість</h4>
+                                <p>Годинники мають високий рівень герметичності від 5 до 30 ATM (від повсякденного захисту від бризок до професійного дайвінгу). Подвійні каучукові ущільнювачі та закручувана заводна коронка надійно захищають складний механізм від вологи та пилу.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-up-down-left-right"></i></div>
+                            <div class="feature-text">
+                                <h4>Ергономіка та Вага</h4>
+                                <p>Фірмова важкість преміального металу на зап’ясті створює відчуття статусу та надійності. Завдяки ідеально вивіреній формі ланок браслета та регульованій застібці з подвійним блокуванням, годинник анатомічно сідає на будь-яке чоловіче чи жіноче плече.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦІЯ 4: Зв'язок / Контакти -->
+    <main id="section-contacts" class="page-section">
+        <section class="contacts-section">
+            <div class="contacts-container">
+                <h2>Маєте запитання або готові замовити?</h2>
+                <p>Натисніть кнопку нижче, щоб зв'язатися з нашим менеджером у Telegram. Ми допоможемо вам обрати ідеальну модель, уточнити наявність та оформити швидку доставку.</p>
+                <a href="https://t.me/murraa13" target="_blank" class="btn-contact-tg">
+                    <i class="fa-brands fa-telegram"></i> Написати менеджеру в Telegram
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Підвал (Футер) -->
+    <footer>
+        <div class="footer-logo-wrap">
+            <div class="logo-container" onclick="showSection('home')">
+                <div class="logo-graphics">
+                    <svg class="logo-icon" viewBox="0 0 40 20">
+                        <path d="M2,10 Q6,3 10,10 T18,10 T26,10 T34,10" />
+                        <path d="M6,13 Q10,7 14,13 T22,13 T30,13" opacity="0.5"/>
+                    </svg>
+                    <div class="logo-divider"></div>
+                    <div class="logo-letter">M</div>
+                </div>
+                <div class="logo-text">Murra_Meridian</div>
+            </div>
+        </div>
+
+        <div class="footer-star">
+            <i class="fa-solid fa-star-of-david" aria-label="логотип зірка" title="Murra Meridian"></i>
+        </div>
+
+        <p class="copyright">© 2026 Murra Meridian. Всі права захищено.</p>
+    </footer>
+
+    <!-- Підключення зовнішнього JS-коду -->
+    <script src="script.js" defer></script>
+    <!-- Модальне вікно для збільшення фото з можливістю гортання -->
+<div id="image-modal" class="modal">
+  <span class="modal-close">&times;</span>
+  <button class="modal-btn modal-prev" id="modal-prev-btn">&#10094;</button>
+  <img class="modal-content" id="modal-img" src="" alt="Збільшене фото">
+  <button class="modal-btn modal-next" id="modal-next-btn">&#10095;</button>
+</div>
+</body>
+</html>
